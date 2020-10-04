@@ -1,0 +1,14 @@
+---
+- name: Install httpd with custom facts
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: install httpd
+    yum:
+      name: "{{ ansible_local.custom.generale.package }}"
+      state: latest
+  - name: start httpd
+    service:
+      name:   "{{ ansible_local.custom.generale.service }}"
+      state:  "{{ ansible_local.custom.generale.state }}"
+      enabled: yes

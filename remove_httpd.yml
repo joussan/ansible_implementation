@@ -1,0 +1,17 @@
+---
+- name: remove httpd 
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: remove httpd
+    yum:
+      name: httpd
+      state: absent
+  - name: remove httpd
+    yum:
+      name: firewalld
+      state: absent
+  - name: remove httpd
+    yum:
+      name: python-httplib2
+      state: absent

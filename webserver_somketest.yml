@@ -1,0 +1,9 @@
+---
+- name: Verify the apache service
+  hosts: localhost 
+  tasks:
+    - name: Ensure the webserver is reachable 
+      uri:
+        url: http://app1
+        status_code: 200
+        return_content: yes
